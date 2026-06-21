@@ -4,7 +4,7 @@ AI Radar es el proyecto del curso avanzado de Codex.
 
 El objetivo del producto es organizar noticias, herramientas, papers, repos y lanzamientos de IA para convertirlos en senales accionables para builders: que paso, por que importa, que tan confiable es y que vale la pena probar.
 
-Estado inicial: definicion de producto, stack objetivo y reglas iniciales. La implementacion se construye por capas durante el curso con Codex.
+Estado actual: definicion de producto, contrato local de senales, scripts de subagentes y una API minima para persistir runs y senales en Supabase. La implementacion se construye por capas durante el curso con Codex.
 
 ## Problema
 
@@ -32,14 +32,45 @@ Al final del curso, AI Radar debe poder:
 - guardar trazas de decisiones y validaciones,
 - desplegarse con infraestructura controlada.
 
-## Estado Inicial
+## Estado Actual
 
-El starter contiene:
+El repo contiene:
 
 - `README.md`
 - `.gitignore`
+- `AGENTS.md`
+- `.agents/` con configuraciones de subagentes
+- `contracts/ai-radar-daily-signals.schema.json`
+- `data/daily/` con snapshots diarios
+- `scripts/` con utilidades locales
+- `app/api/` con endpoints Next.js API-only
+- `lib/` con validacion y acceso server-side a Supabase
+- `supabase/migrations/` con el esquema core
+- `tests/` con pruebas `node:test`
 
-La primera clase usa este estado para mostrar como `AGENTS.md` cambia la forma en que Codex entiende un proyecto antes de escribir codigo.
+No existe dashboard visual todavia.
+
+## Desarrollo Local
+
+```powershell
+npm install
+npm test
+npm run build
+npm run dev
+```
+
+Configura `.env.local` a partir de `.env.example`. No guardes claves reales en git.
+
+## API Supabase
+
+Los endpoints requieren `Authorization: Bearer $AI_RADAR_API_TOKEN`:
+
+- `POST /api/runs`: guarda un run completo con senales normalizadas.
+- `GET /api/runs/:id`: consulta un run y sus senales.
+- `GET /api/signals?fecha=&source_type=&limit=`: lista senales persistidas.
+- `POST /api/sources/sync`: sincroniza fuentes activas desde el cache de Notion.
+
+Supabase se usa solo server-side con `SUPABASE_SERVICE_ROLE_KEY`. La migracion local habilita RLS y no crea politicas publicas.
 
 ## Stack Objetivo
 
