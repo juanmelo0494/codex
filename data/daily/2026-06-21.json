@@ -1,0 +1,95 @@
+{
+  "$schema": "../../contracts/ai-radar-daily-signals.schema.json",
+  "contrato": "ai-radar.daily-signals.v1",
+  "fecha": "2026-06-21",
+  "generado_en": "2026-06-21T11:48:28.6948203+02:00",
+  "busqueda": {
+    "consulta": "5 noticias recientes de IA como senales de AI Radar",
+    "idioma": "es",
+    "criterio": "Noticias recientes con impacto estrategico, tecnico, regulatorio o de infraestructura para builders.",
+    "fuentes_consultadas": [
+      "https://www.axios.com/2026/06/20/ai-tech-moguls-g7",
+      "https://www.theverge.com/ai-artificial-intelligence/951703/anthropic-shutdown-export-controls",
+      "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+      "https://apnews.com/article/power-electricity-ai-plants-data-centers-grid-506e3d206871111f15c3c62fc5368be5",
+      "https://www.theguardian.com/technology/2026/jun/20/europe-sleepwalking-ai-disaster-us-china"
+    ]
+  },
+  "senales": [
+    {
+      "id": "g7-ceos-ia-geopolitica",
+      "titulo": "Los CEOs de IA entran en la mesa geopolitica del G7",
+      "tema": "gobernanza",
+      "fuente": {
+        "nombre": "Axios",
+        "url": "https://www.axios.com/2026/06/20/ai-tech-moguls-g7",
+        "publicado": "2026-06-20",
+        "consultado": "2026-06-21"
+      },
+      "evidencia": "En el G7, lideres de OpenAI, Google DeepMind, Anthropic, Meta y Mistral participaron en discusiones con jefes de Estado sobre control, reglas, estandares y seguridad de IA.",
+      "impacto": "La IA frontier deja de ser solo una carrera de producto y se consolida como asunto de seguridad, soberania y politica internacional.",
+      "accion": "Crear una watchlist de acuerdos G7, estandares internacionales y posiciones regulatorias de paises clave antes de elegir proveedores frontier.",
+      "estado": "alta_prioridad_activo"
+    },
+    {
+      "id": "anthropic-export-controls-fable-mythos",
+      "titulo": "EE. UU. aplica controles de exportacion a modelos frontier de Anthropic",
+      "tema": "regulacion",
+      "fuente": {
+        "nombre": "The Verge",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/951703/anthropic-shutdown-export-controls",
+        "publicado": "2026-06-17",
+        "consultado": "2026-06-21"
+      },
+      "evidencia": "El gobierno estadounidense ordeno cortar el acceso de extranjeros a Fable 5 y Mythos 5; Anthropic termino bloqueando los modelos para todos mientras negociaba con la administracion.",
+      "impacto": "El acceso remoto a modelos alojados en la nube puede quedar sujeto a restricciones politicas o de seguridad nacional, incluso sin transferencia de pesos o codigo.",
+      "accion": "Mapear dependencias de modelos cerrados de EE. UU., preparar alternativas multi-proveedor y revisar riesgos para equipos o clientes internacionales.",
+      "estado": "riesgo_regulatorio_en_desarrollo"
+    },
+    {
+      "id": "deepmind-control-agentes-autonomos",
+      "titulo": "Google DeepMind publica una hoja de ruta para controlar agentes autonomos",
+      "tema": "seguridad de agentes",
+      "fuente": {
+        "nombre": "Google DeepMind",
+        "url": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+        "publicado": "2026-06-18",
+        "consultado": "2026-06-21"
+      },
+      "evidencia": "DeepMind presento un AI Control Roadmap que trata a agentes internos como posibles amenazas, con monitoreo, permisos graduados y respuesta ante acciones riesgosas.",
+      "impacto": "Los agentes con herramientas y autonomia requieren controles de ciberseguridad, no solo prompts o politicas de uso.",
+      "accion": "Agregar logging, sandboxing, permisos minimos, revision humana para acciones criticas y mecanismos de apagado en cualquier flujo con agentes.",
+      "estado": "senal_tecnica_accionable"
+    },
+    {
+      "id": "ferc-grid-data-centers-ia",
+      "titulo": "La red electrica se vuelve cuello de botella para data centers de IA",
+      "tema": "infraestructura",
+      "fuente": {
+        "nombre": "Associated Press",
+        "url": "https://apnews.com/article/power-electricity-ai-plants-data-centers-grid-506e3d206871111f15c3c62fc5368be5",
+        "publicado": "2026-06-18",
+        "consultado": "2026-06-21"
+      },
+      "evidencia": "FERC ordeno a seis operadores regionales acelerar la conexion de grandes consumidores como data centers de IA y pidio planes en plazos de 30 a 60 dias.",
+      "impacto": "La disponibilidad y el costo de compute dependeran cada vez mas de energia, permisos, upgrades de red y oposicion local.",
+      "accion": "Rastrear regiones con capacidad energetica, politicas de interconexion y proveedores con acuerdos de energia propia o cargas flexibles.",
+      "estado": "infraestructura_critica_activo"
+    },
+    {
+      "id": "europa-soberania-ia-europe-2031",
+      "titulo": "Europa acelera el debate de soberania en IA",
+      "tema": "soberania tecnologica",
+      "fuente": {
+        "nombre": "The Guardian",
+        "url": "https://www.theguardian.com/technology/2026/jun/20/europe-sleepwalking-ai-disaster-us-china",
+        "publicado": "2026-06-20",
+        "consultado": "2026-06-21"
+      },
+      "evidencia": "El escenario Europe 2031 se volvio viral entre politicos europeos y conecto el caso Anthropic/Fable con el riesgo de depender de infraestructura y modelos estadounidenses.",
+      "impacto": "Puede crecer la presion por compute europeo, data centers locales, modelos soberanos y compras publicas con requisitos regionales.",
+      "accion": "Monitorear fondos, regulaciones y proveedores europeos de IA para identificar oportunidades de adopcion y compliance temprano.",
+      "estado": "estrategica_emergente"
+    }
+  ]
+}

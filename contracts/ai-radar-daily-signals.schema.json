@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-radar.local/contracts/ai-radar-daily-signals.schema.json",
+  "title": "AI Radar Daily Signals",
+  "description": "Contrato local para guardar busquedas diarias de noticias de IA como senales accionables de AI Radar.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "contrato",
+    "fecha",
+    "generado_en",
+    "busqueda",
+    "senales"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "contrato": {
+      "const": "ai-radar.daily-signals.v1"
+    },
+    "fecha": {
+      "type": "string",
+      "format": "date"
+    },
+    "generado_en": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "busqueda": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consulta",
+        "idioma",
+        "criterio",
+        "fuentes_consultadas"
+      ],
+      "properties": {
+        "consulta": {
+          "type": "string",
+          "minLength": 1
+        },
+        "idioma": {
+          "type": "string",
+          "minLength": 2
+        },
+        "criterio": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fuentes_consultadas": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "senales": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "titulo",
+          "tema",
+          "fuente",
+          "evidencia",
+          "impacto",
+          "accion",
+          "estado"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "titulo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tema": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fuente": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "nombre",
+              "url",
+              "publicado",
+              "consultado"
+            ],
+            "properties": {
+              "nombre": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "publicado": {
+                "type": "string",
+                "format": "date"
+              },
+              "consultado": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          },
+          "evidencia": {
+            "type": "string",
+            "minLength": 1
+          },
+          "impacto": {
+            "type": "string",
+            "minLength": 1
+          },
+          "accion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estado": {
+            "type": "string",
+            "enum": [
+              "alta_prioridad_activo",
+              "riesgo_regulatorio_en_desarrollo",
+              "senal_tecnica_accionable",
+              "infraestructura_critica_activo",
+              "estrategica_emergente",
+              "observacion"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
