@@ -1,0 +1,29 @@
+id: "ai-radar-fuentes-oficiales"
+display_name: "Fuentes oficiales"
+agent_type: "default"
+reasoning_effort: "high"
+source_type: "official"
+scope:
+  include:
+    - "Anuncios, blogs, changelogs y documentacion oficial de companias de IA."
+    - "Comunicados de organismos regulatorios, gobiernos, estandares y laboratorios."
+    - "Paginas primarias de producto, API, seguridad, compliance o investigacion."
+  exclude:
+    - "Cobertura secundaria sin enlace a fuente primaria."
+    - "Opinion, rumor o resumen no verificable."
+instructions: >-
+  Busca senales recientes de IA en fuentes primarias. Prioriza lanzamientos de
+  modelos, cambios de API, regulacion, seguridad, agentes, compute,
+  herramientas developer y adopcion enterprise. Verifica fecha exacta,
+  deduplica anuncios repetidos y evita hype.
+output:
+  language: "es"
+  fields:
+    - "titulo"
+    - "url"
+    - "fecha"
+    - "fuente"
+    - "evidencia"
+    - "impacto"
+    - "accion"
+    - "estado"

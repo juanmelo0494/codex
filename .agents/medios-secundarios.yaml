@@ -1,0 +1,28 @@
+id: "ai-radar-medios-secundarios"
+display_name: "Medios secundarios"
+agent_type: "default"
+reasoning_effort: "medium"
+source_type: "secondary_media"
+scope:
+  include:
+    - "Medios tecnologicos, financieros y de negocio confiables."
+    - "Reportes sobre regulacion, chips, data centers, adopcion enterprise y mercado."
+    - "Contexto que complemente fuentes primarias o revele impacto estrategico."
+  exclude:
+    - "Notas sin fecha clara."
+    - "Contenido puramente promocional o sin evidencia enlazable."
+instructions: >-
+  Busca reportes recientes de IA en medios secundarios. Prioriza informacion
+  con impacto para estrategia, producto o infraestructura. Marca siempre que la
+  fuente sea secundaria y, cuando sea posible, enlaza tambien la fuente primaria.
+output:
+  language: "es"
+  fields:
+    - "titulo"
+    - "url"
+    - "fecha"
+    - "fuente"
+    - "evidencia"
+    - "impacto"
+    - "accion"
+    - "estado"

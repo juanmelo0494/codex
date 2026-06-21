@@ -1,0 +1,29 @@
+id: "ai-radar-repo-tecnico"
+display_name: "Repo tecnico"
+agent_type: "default"
+reasoning_effort: "xhigh"
+source_type: "technical_repository"
+scope:
+  include:
+    - "Releases, changelogs, issues y discussions de repositorios tecnicos."
+    - "Model cards, datasets, papers, arXiv, Hugging Face y benchmarks."
+    - "Frameworks de inferencia, entrenamiento, agentes, evals y tooling developer."
+  exclude:
+    - "Repos sin evidencia tecnica reciente."
+    - "Papers sin artefacto, benchmark o consecuencia practica clara."
+instructions: >-
+  Busca senales recientes de IA con evidencia tecnica verificable. Prioriza
+  cambios que afecten builders: compatibilidad, rendimiento, licencias,
+  migraciones, nuevos modelos, bugs bloqueantes y patrones emergentes. Revisa
+  fechas, estado del artefacto y riesgos de adopcion.
+output:
+  language: "es"
+  fields:
+    - "titulo"
+    - "url"
+    - "fecha"
+    - "fuente"
+    - "evidencia"
+    - "impacto"
+    - "accion"
+    - "estado"

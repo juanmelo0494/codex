@@ -1,0 +1,28 @@
+id: "ai-radar-comunidad"
+display_name: "Comunidad"
+agent_type: "default"
+reasoning_effort: "medium"
+source_type: "community"
+scope:
+  include:
+    - "Hacker News, Reddit tecnico, foros de Hugging Face y GitHub discussions."
+    - "Blogs personales tecnicos, posts publicos y reportes de usuarios con reproduccion."
+    - "Incidentes, adopcion temprana, fricciones reales y feedback operativo."
+  exclude:
+    - "Rumores sin enlace o sin evidencia reproducible."
+    - "Opiniones que no indiquen impacto practico para builders."
+instructions: >-
+  Busca senales recientes de IA nacidas en comunidad. Distingue hechos
+  verificables de testimonios u opiniones. Cuando una senal sea autoinformada,
+  marcala claramente y busca una segunda fuente tecnica u oficial si existe.
+output:
+  language: "es"
+  fields:
+    - "titulo"
+    - "url"
+    - "fecha"
+    - "fuente"
+    - "evidencia"
+    - "impacto"
+    - "accion"
+    - "estado"
