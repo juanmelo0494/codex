@@ -1,0 +1,249 @@
+{
+  "contract": "ai-radar.dashboard-fixture.v1",
+  "source": {
+    "type": "fixture",
+    "description": "Datos declarados para construir y validar el dashboard visual inspirado en la referencia. Sustituir por una API server-side cuando existan scores de ranking, confianza, recencia, fuentes y duplicados.",
+    "related_api": "GET /api/signals?fecha=&source_type=&limit="
+  },
+  "generated_at": "2026-06-21T09:47:32.000Z",
+  "updated_label": "09:47:32",
+  "window_label": "Ultimos 7 dias",
+  "total_signals": 128,
+  "page_size": 10,
+  "signals": [
+    {
+      "rank": 1,
+      "slug": "openai-gpt-4o-voz-vision",
+      "title": "OpenAI presenta GPT-4o con capacidades nativas de voz y vision en tiempo real",
+      "category": "Modelo",
+      "topic": "modelos multimodales",
+      "impact_score": 92,
+      "impact_label": "Muy alto",
+      "confidence_score": 92,
+      "confidence_level": "high",
+      "recency_label": "12m",
+      "observed_at": "09:35",
+      "sources": [
+        { "label": "R", "name": "Reuters", "tone": "red" },
+        { "label": "TC", "name": "TechCrunch", "tone": "dark" },
+        { "label": "AI", "name": "OpenAI", "tone": "blue" }
+      ],
+      "additional_sources": 6,
+      "duplicate_status": "unique",
+      "evidence": "La senal combina reportes de prensa tecnica y fuente oficial sobre capacidades nativas de voz, vision y respuesta en tiempo real.",
+      "action": "Evaluar flujos donde la latencia conversacional y entrada multimodal reduzcan pasos manuales."
+    },
+    {
+      "rank": 2,
+      "slug": "deepmind-gemini-contexto-2m",
+      "title": "Google DeepMind lanza Gemini 1.5 Pro con ventana de contexto de 2M tokens",
+      "category": "Modelo",
+      "topic": "contexto largo",
+      "impact_score": 89,
+      "impact_label": "Muy alto",
+      "confidence_score": 88,
+      "confidence_level": "high",
+      "recency_label": "28m",
+      "observed_at": "09:19",
+      "sources": [
+        { "label": "B", "name": "Bloomberg", "tone": "red" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "G", "name": "Google", "tone": "orange" }
+      ],
+      "additional_sources": 8,
+      "duplicate_status": "unique",
+      "evidence": "La senal aparece en fuente primaria y cobertura secundaria con foco en contexto largo para analisis de documentos y codigo.",
+      "action": "Probar recuperacion de informacion y analisis de repos grandes contra el limite actual."
+    },
+    {
+      "rank": 3,
+      "slug": "anthropic-claude-3-opus-codigo",
+      "title": "Anthropic introduce Claude 3 Opus con mejoras en razonamiento y codigo",
+      "category": "Modelo",
+      "topic": "razonamiento",
+      "impact_score": 85,
+      "impact_label": "Muy alto",
+      "confidence_score": 86,
+      "confidence_level": "high",
+      "recency_label": "1h 02m",
+      "observed_at": "08:45",
+      "sources": [
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "TC", "name": "TechCrunch", "tone": "dark" },
+        { "label": "A", "name": "Anthropic", "tone": "blue-muted" }
+      ],
+      "additional_sources": 7,
+      "duplicate_status": "possible",
+      "evidence": "La cobertura coincide en avances de razonamiento, tareas de codigo y comparativas con modelos frontier.",
+      "action": "Actualizar benchmarks internos de copilotos y revisar costos por tarea completada."
+    },
+    {
+      "rank": 4,
+      "slug": "microsoft-copilot-gpt-4o-office",
+      "title": "Microsoft integra Copilot con GPT-4o en Office 365 para todos los usuarios",
+      "category": "Producto",
+      "topic": "productividad",
+      "impact_score": 78,
+      "impact_label": "Alto",
+      "confidence_score": 74,
+      "confidence_level": "medium",
+      "recency_label": "1h 18m",
+      "observed_at": "08:29",
+      "sources": [
+        { "label": "MS", "name": "Microsoft", "tone": "green" },
+        { "label": "B", "name": "Bloomberg", "tone": "dark" },
+        { "label": "R", "name": "Reuters", "tone": "light" }
+      ],
+      "additional_sources": 5,
+      "duplicate_status": "unique",
+      "evidence": "La senal conecta anuncio de producto con distribucion masiva en suite de trabajo existente.",
+      "action": "Revisar oportunidades de integracion con documentos, correo y flujos internos de conocimiento."
+    },
+    {
+      "rank": 5,
+      "slug": "meta-llama-3-70b-inferencia",
+      "title": "Meta presenta Llama 3 70B con mejor rendimiento y menor coste de inferencia",
+      "category": "Modelo",
+      "topic": "open models",
+      "impact_score": 74,
+      "impact_label": "Alto",
+      "confidence_score": 71,
+      "confidence_level": "medium",
+      "recency_label": "2h 03m",
+      "observed_at": "07:44",
+      "sources": [
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "TC", "name": "TechCrunch", "tone": "dark" },
+        { "label": "M", "name": "Meta", "tone": "purple" }
+      ],
+      "additional_sources": 6,
+      "duplicate_status": "unique",
+      "evidence": "La senal agrupa fuente de proveedor, prensa tecnica y comparaciones de inferencia.",
+      "action": "Probar casos de uso donde self-hosting y costo por token cambien la decision de proveedor."
+    },
+    {
+      "rank": 6,
+      "slug": "nvidia-blackwell-gb200-entrenamiento",
+      "title": "NVIDIA anuncia chips Blackwell GB200 enfocados en entrenamiento de IA",
+      "category": "Hardware",
+      "topic": "infraestructura",
+      "impact_score": 68,
+      "impact_label": "Alto",
+      "confidence_score": 66,
+      "confidence_level": "medium",
+      "recency_label": "3h 11m",
+      "observed_at": "06:36",
+      "sources": [
+        { "label": "N", "name": "NVIDIA", "tone": "green-dark" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "EE", "name": "Enterprise AI", "tone": "blue" }
+      ],
+      "additional_sources": 4,
+      "duplicate_status": "possible",
+      "evidence": "La senal cruza anuncio de hardware con cobertura de disponibilidad para entrenamiento a gran escala.",
+      "action": "Monitorear disponibilidad regional, consumo energetico y cambios en precio de compute."
+    },
+    {
+      "rank": 7,
+      "slug": "perplexity-deep-research-pdf",
+      "title": "Perplexity lanza Deep Research con citas verificadas y exportacion a PDF",
+      "category": "Producto",
+      "topic": "research workflow",
+      "impact_score": 62,
+      "impact_label": "Medio",
+      "confidence_score": 60,
+      "confidence_level": "medium",
+      "recency_label": "4h 02m",
+      "observed_at": "05:45",
+      "sources": [
+        { "label": "P", "name": "Perplexity", "tone": "dark" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "X", "name": "X", "tone": "blue" }
+      ],
+      "additional_sources": 3,
+      "duplicate_status": "unique",
+      "evidence": "La senal se apoya en lanzamiento de producto y capturas de usuarios sobre flujo de investigacion.",
+      "action": "Comparar calidad de citas y exportacion frente a flujos internos de analisis."
+    },
+    {
+      "rank": 8,
+      "slug": "apple-modelos-generativos-ios-18",
+      "title": "Apple explora integrar modelos generativos en iOS 18, segun Bloomberg",
+      "category": "Estrategia",
+      "topic": "distribucion movil",
+      "impact_score": 58,
+      "impact_label": "Medio",
+      "confidence_score": 55,
+      "confidence_level": "medium",
+      "recency_label": "5h 27m",
+      "observed_at": "04:20",
+      "sources": [
+        { "label": "BBG", "name": "Bloomberg", "tone": "dark" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "M", "name": "MacRumors", "tone": "blue-muted" }
+      ],
+      "additional_sources": 6,
+      "duplicate_status": "possible",
+      "evidence": "La senal es secundaria y depende de reportes sobre integracion futura en sistema operativo.",
+      "action": "Seguir APIs de desarrollador antes de comprometer roadmap de producto movil."
+    },
+    {
+      "rank": 9,
+      "slug": "aws-bedrock-agents-orquestacion",
+      "title": "AWS lanza Bedrock Agents para orquestacion segura de agentes de IA",
+      "category": "Producto",
+      "topic": "agentes",
+      "impact_score": 54,
+      "impact_label": "Medio",
+      "confidence_score": 53,
+      "confidence_level": "medium",
+      "recency_label": "6h 10m",
+      "observed_at": "03:37",
+      "sources": [
+        { "label": "A", "name": "AWS", "tone": "blue" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "TC", "name": "TechCrunch", "tone": "dark" }
+      ],
+      "additional_sources": 4,
+      "duplicate_status": "unique",
+      "evidence": "La senal combina anuncio cloud con foco en permisos, herramientas y despliegue empresarial.",
+      "action": "Evaluar si la orquestacion gestionada reduce riesgo operativo frente a agentes propios."
+    },
+    {
+      "rank": 10,
+      "slug": "eu-ai-act-guias-alto-riesgo",
+      "title": "EU AI Act entra en vigor con primeras guias para sistemas de alto riesgo",
+      "category": "Politica",
+      "topic": "regulacion",
+      "impact_score": 49,
+      "impact_label": "Medio",
+      "confidence_score": 48,
+      "confidence_level": "low",
+      "recency_label": "7h 42m",
+      "observed_at": "02:05",
+      "sources": [
+        { "label": "EU", "name": "European Union", "tone": "navy" },
+        { "label": "R", "name": "Reuters", "tone": "light" },
+        { "label": "FT", "name": "Financial Times", "tone": "orange" }
+      ],
+      "additional_sources": 5,
+      "duplicate_status": "unique",
+      "evidence": "La senal resume cobertura legal y primeras guias para sistemas clasificados como alto riesgo.",
+      "action": "Revisar inventario de funciones con decision automatizada y documentar controles de cumplimiento."
+    }
+  ],
+  "source_health": [
+    { "name": "Reuters", "label": "R", "score": 98, "lag_label": "12m", "tone": "red", "trend": [88, 89, 89, 88, 90, 89, 91, 90, 92, 91, 92, 93] },
+    { "name": "TechCrunch", "label": "TC", "score": 96, "lag_label": "8m", "tone": "green", "trend": [84, 86, 85, 87, 87, 86, 85, 85, 84, 83, 83, 82] },
+    { "name": "The Verge", "label": "V", "score": 92, "lag_label": "15m", "tone": "purple", "trend": [75, 76, 77, 76, 78, 77, 77, 76, 75, 76, 78, 78] },
+    { "name": "Bloomberg", "label": "B", "score": 90, "lag_label": "22m", "tone": "dark", "trend": [72, 73, 73, 74, 75, 74, 73, 72, 70, 69, 68, 67] },
+    { "name": "Wired", "label": "W", "score": 88, "lag_label": "18m", "tone": "dark", "trend": [68, 69, 70, 70, 71, 70, 69, 70, 68, 67, 66, 66] },
+    { "name": "arXiv", "label": "X", "score": 85, "lag_label": "30m", "tone": "light", "trend": [63, 64, 65, 64, 66, 67, 66, 65, 66, 67, 68, 68] },
+    { "name": "X (Twitter)", "label": "X", "score": 78, "lag_label": "5m", "tone": "light", "trend": [58, 59, 61, 60, 60, 59, 57, 56, 55, 54, 53, 53] },
+    { "name": "YouTube", "label": "YT", "score": 74, "lag_label": "6m", "tone": "red", "trend": [52, 53, 54, 55, 55, 54, 53, 52, 51, 50, 50, 49] }
+  ],
+  "summary": {
+    "extra_sources": 12,
+    "extra_sources_score": 87
+  }
+}
