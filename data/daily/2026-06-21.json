@@ -2,17 +2,17 @@
   "$schema": "../../contracts/ai-radar-daily-signals.schema.json",
   "contrato": "ai-radar.daily-signals.v1",
   "fecha": "2026-06-21",
-  "generado_en": "2026-06-21T11:48:28.6948203+02:00",
+  "generado_en": "2026-06-21T12:07:40.0817391+02:00",
   "busqueda": {
     "consulta": "5 noticias recientes de IA como senales de AI Radar",
     "idioma": "es",
     "criterio": "Noticias recientes con impacto estrategico, tecnico, regulatorio o de infraestructura para builders.",
     "fuentes_consultadas": [
       "https://www.axios.com/2026/06/20/ai-tech-moguls-g7",
-      "https://www.theverge.com/ai-artificial-intelligence/951703/anthropic-shutdown-export-controls",
+      "https://www.anthropic.com/news/fable-mythos-access",
       "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
       "https://apnews.com/article/power-electricity-ai-plants-data-centers-grid-506e3d206871111f15c3c62fc5368be5",
-      "https://www.theguardian.com/technology/2026/jun/20/europe-sleepwalking-ai-disaster-us-china"
+      "https://openai.com/index/ai-chemist-improves-reaction/"
     ]
   },
   "senales": [
@@ -26,29 +26,29 @@
         "publicado": "2026-06-20",
         "consultado": "2026-06-21"
       },
-      "evidencia": "En el G7, lideres de OpenAI, Google DeepMind, Anthropic, Meta y Mistral participaron en discusiones con jefes de Estado sobre control, reglas, estandares y seguridad de IA.",
-      "impacto": "La IA frontier deja de ser solo una carrera de producto y se consolida como asunto de seguridad, soberania y politica internacional.",
-      "accion": "Crear una watchlist de acuerdos G7, estandares internacionales y posiciones regulatorias de paises clave antes de elegir proveedores frontier.",
+      "evidencia": "Axios reporto que lideres de OpenAI, Google DeepMind, Anthropic, Meta, Mistral y otros participaron en conversaciones del G7 sobre control, reglas, estandares y seguridad de la IA.",
+      "impacto": "La IA frontier se esta tratando como infraestructura economica y de seguridad nacional, no solo como una categoria de producto.",
+      "accion": "Mantener una watchlist de acuerdos del G7, propuestas de estandarizacion y posiciones regulatorias antes de elegir proveedores frontier para productos criticos.",
       "estado": "alta_prioridad_activo"
     },
     {
-      "id": "anthropic-export-controls-fable-mythos",
-      "titulo": "EE. UU. aplica controles de exportacion a modelos frontier de Anthropic",
+      "id": "anthropic-fable-mythos-control-exportacion",
+      "titulo": "Anthropic suspende Fable 5 y Mythos 5 por una directiva del gobierno de EE. UU.",
       "tema": "regulacion",
       "fuente": {
-        "nombre": "The Verge",
-        "url": "https://www.theverge.com/ai-artificial-intelligence/951703/anthropic-shutdown-export-controls",
-        "publicado": "2026-06-17",
+        "nombre": "Anthropic",
+        "url": "https://www.anthropic.com/news/fable-mythos-access",
+        "publicado": "2026-06-12",
         "consultado": "2026-06-21"
       },
-      "evidencia": "El gobierno estadounidense ordeno cortar el acceso de extranjeros a Fable 5 y Mythos 5; Anthropic termino bloqueando los modelos para todos mientras negociaba con la administracion.",
-      "impacto": "El acceso remoto a modelos alojados en la nube puede quedar sujeto a restricciones politicas o de seguridad nacional, incluso sin transferencia de pesos o codigo.",
-      "accion": "Mapear dependencias de modelos cerrados de EE. UU., preparar alternativas multi-proveedor y revisar riesgos para equipos o clientes internacionales.",
+      "evidencia": "Anthropic dijo que una directiva de control de exportacion obligaba a suspender el acceso de extranjeros a Fable 5 y Mythos 5, y que la empresa deshabilito ambos modelos para todos sus clientes para cumplir.",
+      "impacto": "El acceso a modelos frontier alojados en la nube puede interrumpirse por decisiones regulatorias, incluso sin transferencia de pesos ni despliegues locales.",
+      "accion": "Mapear dependencias de modelos cerrados, definir alternativas multi-proveedor y documentar planes de continuidad para usuarios o clientes internacionales.",
       "estado": "riesgo_regulatorio_en_desarrollo"
     },
     {
-      "id": "deepmind-control-agentes-autonomos",
-      "titulo": "Google DeepMind publica una hoja de ruta para controlar agentes autonomos",
+      "id": "deepmind-control-agentes-ia",
+      "titulo": "Google DeepMind publica una hoja de ruta para asegurar agentes de IA",
       "tema": "seguridad de agentes",
       "fuente": {
         "nombre": "Google DeepMind",
@@ -56,13 +56,13 @@
         "publicado": "2026-06-18",
         "consultado": "2026-06-21"
       },
-      "evidencia": "DeepMind presento un AI Control Roadmap que trata a agentes internos como posibles amenazas, con monitoreo, permisos graduados y respuesta ante acciones riesgosas.",
-      "impacto": "Los agentes con herramientas y autonomia requieren controles de ciberseguridad, no solo prompts o politicas de uso.",
-      "accion": "Agregar logging, sandboxing, permisos minimos, revision humana para acciones criticas y mecanismos de apagado en cualquier flujo con agentes.",
+      "evidencia": "DeepMind publico su AI Control Roadmap, que trata agentes internos como posibles amenazas internas y combina monitoreo, permisos graduados, supervision de otros modelos y respuestas sincronas para acciones de mayor riesgo.",
+      "impacto": "Los equipos que construyen agentes con herramientas necesitan controles de seguridad operativa, no solo prompts, politicas de uso o evaluaciones offline.",
+      "accion": "Agregar logging, sandboxing, permisos minimos, aprobacion humana para acciones irreversibles y monitores de comportamiento en cualquier flujo agentico.",
       "estado": "senal_tecnica_accionable"
     },
     {
-      "id": "ferc-grid-data-centers-ia",
+      "id": "ferc-red-electrica-data-centers-ia",
       "titulo": "La red electrica se vuelve cuello de botella para data centers de IA",
       "tema": "infraestructura",
       "fuente": {
@@ -71,24 +71,24 @@
         "publicado": "2026-06-18",
         "consultado": "2026-06-21"
       },
-      "evidencia": "FERC ordeno a seis operadores regionales acelerar la conexion de grandes consumidores como data centers de IA y pidio planes en plazos de 30 a 60 dias.",
-      "impacto": "La disponibilidad y el costo de compute dependeran cada vez mas de energia, permisos, upgrades de red y oposicion local.",
+      "evidencia": "AP informo que FERC ordeno a seis operadores regionales acelerar la conexion de grandes usuarios como data centers de IA y pedir planes de respuesta en plazos de 30 a 60 dias.",
+      "impacto": "La disponibilidad, precio y latencia del compute dependeran cada vez mas de energia, permisos, interconexion de red y negociacion local.",
       "accion": "Rastrear regiones con capacidad energetica, politicas de interconexion y proveedores con acuerdos de energia propia o cargas flexibles.",
       "estado": "infraestructura_critica_activo"
     },
     {
-      "id": "europa-soberania-ia-europe-2031",
-      "titulo": "Europa acelera el debate de soberania en IA",
-      "tema": "soberania tecnologica",
+      "id": "openai-quimico-autonomo-medicinal",
+      "titulo": "OpenAI muestra un agente casi autonomo que mejora una reaccion de quimica medicinal",
+      "tema": "investigacion aplicada",
       "fuente": {
-        "nombre": "The Guardian",
-        "url": "https://www.theguardian.com/technology/2026/jun/20/europe-sleepwalking-ai-disaster-us-china",
-        "publicado": "2026-06-20",
+        "nombre": "OpenAI",
+        "url": "https://openai.com/index/ai-chemist-improves-reaction/",
+        "publicado": "2026-06-17",
         "consultado": "2026-06-21"
       },
-      "evidencia": "El escenario Europe 2031 se volvio viral entre politicos europeos y conecto el caso Anthropic/Fable con el riesgo de depender de infraestructura y modelos estadounidenses.",
-      "impacto": "Puede crecer la presion por compute europeo, data centers locales, modelos soberanos y compras publicas con requisitos regionales.",
-      "accion": "Monitorear fondos, regulaciones y proveedores europeos de IA para identificar oportunidades de adopcion y compliance temprano.",
+      "evidencia": "OpenAI reporto que GPT-5.4, conectado a Maria de Molecule.one, propuso y ejecuto ciclos experimentales que mejoraron rendimientos en una reaccion Chan-Lam para mas del 80% de los sustratos probados.",
+      "impacto": "La automatizacion cientifica esta pasando de demos de razonamiento a bucles de investigacion con laboratorio, datos experimentales y validacion humana.",
+      "accion": "Identificar flujos internos donde un agente pueda proponer experimentos, ejecutar tareas acotadas y producir resultados auditables con humanos en el ciclo.",
       "estado": "estrategica_emergente"
     }
   ]

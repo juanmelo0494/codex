@@ -1,45 +1,33 @@
-# AI Radar Agent Guide
+# Guia del Repositorio
 
-AI Radar is the course project for learning Codex with a real product surface.
+## Estructura del Proyecto y Organizacion
 
-The current repository state is intentionally small. Treat the README as product direction, not as proof that the full system already exists.
+Este workspace contiene el starter clonado de AI Radar en `platzi-codex-clase-02-agents-md/`. Ese proyecto es intencionalmente pequeno: `README.md` define la direccion del producto, `AGENTS.md` define reglas para agentes y `.gitignore` excluye caches locales, secretos, datos generados y salidas de build. Todavia no existen `src/`, `tests/`, `assets/`, manifiesto de paquete ni runtime de aplicacion. Agrega nuevos directorios solo cuando el objetivo de la clase lo requiera.
 
-## Current State
+## Comandos de Build, Prueba y Desarrollo
 
-- The project currently has a README and repository rules.
-- The implementation is built class by class.
-- Do not assume app files, scripts, databases, skills, deploy config, or automations exist until they are present in the repo.
+Todavia no existen comandos de build o pruebas porque no hay implementacion de aplicacion ni `package.json`. Usa comandos de inspeccion mientras trabajas:
 
-## Product Direction
+```powershell
+cd platzi-codex-clase-02-agents-md
+git status --short
+git log --oneline -5
+```
 
-AI Radar will collect AI news, papers, repos, tools, and launches, then turn them into verifiable signals for builders.
+No documentes comandos como `npm test` o `npm run build` hasta que realmente existan.
 
-The final system should support:
+## Estilo de Codigo y Convenciones de Nombres
 
-- source evidence;
-- normalized signals;
-- duplicate detection;
-- ranking;
-- practical action guides;
-- an operator view;
-- deploy and automation.
+El contenido actual es solo Markdown. Manten encabezados claros, parrafos breves y nombres descriptivos para futuros archivos, por ejemplo `fixtures/signals.json` o `scripts/normalize-sources.js`. No incluyas en control de versiones salidas generadas, snapshots, grabaciones, credenciales ni bases de datos locales.
 
-## Working Rules
+## Guia de Pruebas
 
-- Inspect the repo before editing.
-- Keep changes scoped to the current class objective.
-- Prefer small, reproducible files over chat-only state.
-- Do not commit secrets, local caches, generated weekly snapshots, build output, videos, screenshots, or temporary reports.
-- When a class creates a reusable process, prefer a skill.
-- When a class creates deterministic work, prefer a tool or script.
-- When adding data examples, use fixtures or contracts unless the class explicitly requires a durable seed.
+No hay un framework de pruebas configurado todavia. Cuando se introduzcan modulos JavaScript, prefiere `node:test` para la logica de dominio. Cuando exista una interfaz visual, agrega verificaciones con Playwright para flujos de usuario. Los archivos de prueba deben vivir junto al comportamiento que verifican o dentro de un directorio `tests/` claro cuando la estructura este definida.
 
-## Validation
+## Guia de Commits y Pull Requests
 
-For each class branch, leave a clear state:
+El historial existente usa prefijos convencionales cortos como `docs:` y `chore:`. Manten ese estilo, por ejemplo `docs: aclarar objetivos de AI Radar` o `chore: actualizar reglas de ignore`. Los pull requests deben describir que cambio, como se verifico y que queda intencionalmente pendiente. Incluye capturas solo cuando exista una interfaz.
 
-- what was added;
-- how to verify it;
-- what remains intentionally missing.
+## Instrucciones Especificas para Agentes
 
-If commands do not exist yet, do not invent them in docs as if they already work.
+Inspecciona el repositorio antes de editar. Trata el README como direccion de producto, no como prueba de funcionalidades implementadas. Manten los cambios acotados a la leccion actual y evita inventar servicios, scripts, bases de datos o automatizaciones que no esten presentes.
