@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "node --test"
+    "test": "node --test",
+    "sources:refresh": "node scripts/refresh_sources_cache.js",
+    "supabase:check": "node scripts/check_supabase_config.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.108.2",

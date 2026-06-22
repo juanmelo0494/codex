@@ -1,6 +1,6 @@
 (() => {
   const dataScript = document.querySelector("#dashboard-data");
-  const dashboard = dataScript ? JSON.parse(dataScript.content.textContent) : null;
+  const dashboard = dataScript ? JSON.parse(dataScript.value || dataScript.textContent) : null;
   const liveStatus = document.querySelector("[data-live-status]");
   const rows = [...document.querySelectorAll("[data-row]")];
   const countLabel = document.querySelector("[data-count-label]");
@@ -21,15 +21,7 @@
   }
 
   const tableBody = document.querySelector("[data-table-body]");
-  const noResultsRow = document.createElement("tr");
-  noResultsRow.className = "no-results-row";
-  noResultsRow.innerHTML = `
-    <td class="state-cell" colspan="8">
-      <strong>No hay resultados para esos filtros</strong>
-      <span>Ajusta busqueda, impacto minimo, confianza o duplicados.</span>
-    </td>
-  `;
-  tableBody.append(noResultsRow);
+  const noResultsRow = document.querySelector("[data-no-results-row]");
 
   function normalize(value) {
     return value.trim().toLowerCase();
@@ -168,4 +160,6 @@
       updateStatus(`Vista cambiada a ${button.textContent.trim()}`);
     });
   }
+
+  document.documentElement.dataset.dashboardReady = "true";
 })();

@@ -4,7 +4,7 @@ AI Radar es el proyecto del curso avanzado de Codex.
 
 El objetivo del producto es organizar noticias, herramientas, papers, repos y lanzamientos de IA para convertirlos en senales accionables para builders: que paso, por que importa, que tan confiable es y que vale la pena probar.
 
-Estado actual: definicion de producto, contrato local de senales, scripts de subagentes y una API minima para persistir runs y senales en Supabase. La implementacion se construye por capas durante el curso con Codex.
+Estado actual: definicion de producto, contrato local de senales, scripts de subagentes, una API minima para persistir runs y senales en Supabase y un dashboard visual inicial. El dashboard puede leer datos reales server-side desde Supabase cuando el entorno esta configurado; si faltan credenciales, cae al fixture declarado en `fixtures/dashboard.json`.
 
 ## Problema
 
@@ -43,12 +43,13 @@ El repo contiene:
 - `contracts/ai-radar-daily-signals.schema.json`
 - `data/daily/` con snapshots diarios
 - `scripts/` con utilidades locales
-- `app/api/` con endpoints Next.js API-only
+- `app/api/` con endpoints Next.js protegidos
+- `app/page.js` con dashboard visual basado en API server-side o fixture declarado
 - `lib/` con validacion y acceso server-side a Supabase
 - `supabase/migrations/` con el esquema core
 - `tests/` con pruebas `node:test`
 
-No existe dashboard visual todavia.
+El dashboard visual existe en modo operacional inicial. Aun no hay ranking persistido con scores propios; cuando usa Supabase, la capa visual adapta `signals` y `sources` al contrato de UI y declara ese mapeo en los datos entregados a la pagina.
 
 ## Desarrollo Local
 
@@ -57,9 +58,21 @@ npm install
 npm test
 npm run build
 npm run dev
+npm run sources:refresh
+npm run supabase:check
 ```
 
 Configura `.env.local` a partir de `.env.example`. No guardes claves reales en git.
+
+## Fuentes Notion
+
+La tabla de fuentes vive en Notion como `AI radar Sources`. Para refrescar el cache local ignorado por git:
+
+```powershell
+npm run sources:refresh
+```
+
+El script usa la API publica de Notion y evita depender de consultas SQL del conector Notion. Configura `NOTION_API_KEY` y preferentemente `NOTION_DATA_SOURCE_ID`; `NOTION_DATABASE_ID` queda como fallback legacy. El cache resultante se escribe en `config/sources.json`, agrupado por subagente y solo con filas `Status = activa`.
 
 ## API Supabase
 
@@ -71,6 +84,14 @@ Los endpoints requieren `Authorization: Bearer $AI_RADAR_API_TOKEN`:
 - `POST /api/sources/sync`: sincroniza fuentes activas desde el cache de Notion.
 
 Supabase se usa solo server-side con `SUPABASE_SERVICE_ROLE_KEY`. La migracion local habilita RLS y no crea politicas publicas.
+
+Para validar que el entorno apunta al proyecto correcto y que existen las tablas esperadas:
+
+```powershell
+npm run supabase:check
+```
+
+El diagnostico no imprime secretos. Si faltan variables o el proyecto no tiene `public.sources`, `public.runs` y `public.signals`, reporta el problema antes de intentar sincronizar fuentes o persistir snapshots.
 
 ## Stack Objetivo
 

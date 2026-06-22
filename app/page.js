@@ -1,5 +1,7 @@
-import dashboard from "../fixtures/dashboard.json";
 import Script from "next/script";
+import { loadDashboardData } from "../lib/dashboard.js";
+
+export const dynamic = "force-dynamic";
 
 const stateLabels = {
   loading: "Cargando senales",
@@ -42,7 +44,18 @@ function sparklinePoints(values) {
     .join(" ");
 }
 
-function renderTableBody(viewState) {
+function renderNoResultsRow() {
+  return (
+    <tr className="no-results-row" data-no-results-row>
+      <td className="state-cell" colSpan="8">
+        <strong>No hay resultados para esos filtros</strong>
+        <span>Ajusta busqueda, impacto minimo, confianza o duplicados.</span>
+      </td>
+    </tr>
+  );
+}
+
+function renderTableBody(viewState, dashboard) {
   if (viewState === "loading") {
     return Array.from({ length: 5 }, (_, index) => (
       <tr className="skeleton-row" key={`loading-${index}`}>
@@ -75,82 +88,94 @@ function renderTableBody(viewState) {
     );
   }
 
-  return dashboard.signals.map((signal) => (
-    <tr
-      key={signal.slug}
-      data-row
-      data-title={signal.title.toLowerCase()}
-      data-category={signal.category}
-      data-topic={signal.topic}
-      data-confidence={signal.confidence_score}
-      data-impact={signal.impact_score}
-      data-duplicate={signal.duplicate_status}
-      data-sources={signal.sources.map((source) => source.name.toLowerCase()).join(" ")}
-    >
-      <td data-label="#" className="rank-cell">
-        {signal.rank}
-      </td>
-      <td data-label="Senal" className="signal-cell">
-        <strong>{signal.title}</strong>
-        <span>{signal.category}</span>
-      </td>
-      <td data-label="Impacto" className="impact-cell">
-        <strong className={`impact-score impact-${scoreTone(signal.impact_score)}`}>
-          {signal.impact_score}
-        </strong>
-        <span>{signal.impact_label}</span>
-      </td>
-      <td data-label="Confianza" className="confidence-cell">
-        <span className={`confidence-value confidence-${signal.confidence_level}`}>
-          {signal.confidence_score}%
-        </span>
-        <span className="meter" aria-hidden="true">
-          <span style={{ width: `${signal.confidence_score}%` }} />
-        </span>
-      </td>
-      <td data-label="Recencia" className="recency-cell">
-        <strong>{signal.recency_label}</strong>
-        <span>{signal.observed_at}</span>
-      </td>
-      <td data-label="Fuentes" className="sources-cell">
-        <span className="source-stack" aria-label={`Fuentes: ${signal.sources.map((source) => source.name).join(", ")}`}>
-          {signal.sources.map((source) => (
-            <span className={sourceTone(source.tone)} title={source.name} key={`${signal.slug}-${source.label}`}>
-              {source.label}
-            </span>
-          ))}
-          <span className="source-more">+{signal.additional_sources}</span>
-        </span>
-      </td>
-      <td data-label="Duplicados" className="duplicate-cell">
-        <span className={`duplicate duplicate-${signal.duplicate_status}`}>
-          {duplicateLabel(signal.duplicate_status)}
-        </span>
-      </td>
-      <td data-label="Acciones" className="actions-cell">
-        <button
-          className="secondary-button evidence-button"
-          type="button"
-          data-evidence-button
-          data-slug={signal.slug}
+  return (
+    <>
+      {dashboard.signals.map((signal) => (
+        <tr
+          key={signal.slug}
+          data-row
+          data-title={signal.title.toLowerCase()}
+          data-category={signal.category}
+          data-topic={signal.topic}
+          data-confidence={signal.confidence_score}
+          data-impact={signal.impact_score}
+          data-duplicate={signal.duplicate_status}
+          data-sources={signal.sources.map((source) => source.name.toLowerCase()).join(" ")}
         >
-          <span className="button-icon evidence-icon" aria-hidden="true" />
-          <span>Ver evidencia</span>
-        </button>
-        <button className="icon-button dots-button" type="button" aria-label={`Mas acciones para ${signal.title}`}>
-          <span className="dots-icon" aria-hidden="true" />
-        </button>
-      </td>
-    </tr>
-  ));
+          <td data-label="#" className="rank-cell">
+            {signal.rank}
+          </td>
+          <td data-label="Senal" className="signal-cell">
+            <strong>{signal.title}</strong>
+            <span>{signal.category}</span>
+          </td>
+          <td data-label="Impacto" className="impact-cell">
+            <strong className={`impact-score impact-${scoreTone(signal.impact_score)}`}>
+              {signal.impact_score}
+            </strong>
+            <span>{signal.impact_label}</span>
+          </td>
+          <td data-label="Confianza" className="confidence-cell">
+            <span className={`confidence-value confidence-${signal.confidence_level}`}>
+              {signal.confidence_score}%
+            </span>
+            <span className="meter" aria-hidden="true">
+              <span style={{ width: `${signal.confidence_score}%` }} />
+            </span>
+          </td>
+          <td data-label="Recencia" className="recency-cell">
+            <strong>{signal.recency_label}</strong>
+            <span>{signal.observed_at}</span>
+          </td>
+          <td data-label="Fuentes" className="sources-cell">
+            <span
+              className="source-stack"
+              aria-label={`Fuentes: ${signal.sources.map((source) => source.name).join(", ")}`}
+            >
+              {signal.sources.map((source) => (
+                <span className={sourceTone(source.tone)} title={source.name} key={`${signal.slug}-${source.label}`}>
+                  {source.label}
+                </span>
+              ))}
+              <span className="source-more">+{signal.additional_sources}</span>
+            </span>
+          </td>
+          <td data-label="Duplicados" className="duplicate-cell">
+            <span className={`duplicate duplicate-${signal.duplicate_status}`}>
+              {duplicateLabel(signal.duplicate_status)}
+            </span>
+          </td>
+          <td data-label="Acciones" className="actions-cell">
+            <button
+              className="secondary-button evidence-button"
+              type="button"
+              data-evidence-button
+              data-slug={signal.slug}
+            >
+              <span className="button-icon evidence-icon" aria-hidden="true" />
+              <span>Ver evidencia</span>
+            </button>
+            <button className="icon-button dots-button" type="button" aria-label={`Mas acciones para ${signal.title}`}>
+              <span className="dots-icon" aria-hidden="true" />
+            </button>
+          </td>
+        </tr>
+      ))}
+      {renderNoResultsRow()}
+    </>
+  );
 }
 
 export default async function DashboardPage({ searchParams }) {
   const params = await searchParams;
+  const dashboard = await loadDashboardData();
   const requestedState = typeof params?.state === "string" ? params.state : "success";
-  const viewState = Object.hasOwn(stateLabels, requestedState) ? requestedState : "success";
+  const initialState = Object.hasOwn(stateLabels, requestedState) ? requestedState : "success";
+  const viewState = initialState === "success" && dashboard.signals.length === 0 ? "empty" : initialState;
   const isInteractive = viewState === "success";
   const serializedDashboard = JSON.stringify(dashboard).replaceAll("<", "\\u003c");
+  const visibleStart = dashboard.total_signals === 0 ? 0 : 1;
+  const visibleEnd = Math.min(dashboard.page_size, dashboard.total_signals);
 
   return (
     <>
@@ -298,13 +323,13 @@ export default async function DashboardPage({ searchParams }) {
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>
-              <tbody data-table-body>{renderTableBody(viewState)}</tbody>
+              <tbody data-table-body>{renderTableBody(viewState, dashboard)}</tbody>
             </table>
           </div>
 
           <div className="table-footer">
             <p data-count-label>
-              1-{dashboard.page_size} de {dashboard.total_signals} senales
+              {visibleStart}-{visibleEnd} de {dashboard.total_signals} senales
             </p>
             <nav className="pagination" aria-label="Paginacion">
               <button type="button" className="page-arrow" aria-label="Pagina anterior" disabled>
@@ -394,9 +419,11 @@ export default async function DashboardPage({ searchParams }) {
         </form>
       </dialog>
 
-      <template
+      <textarea
         id="dashboard-data"
-        dangerouslySetInnerHTML={{ __html: serializedDashboard }}
+        hidden
+        readOnly
+        defaultValue={serializedDashboard}
       />
       <Script src="/dashboard.js" strategy="afterInteractive" />
     </>

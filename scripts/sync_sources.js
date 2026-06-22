@@ -2,6 +2,10 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
+import { loadLocalEnv } from "../lib/env.js";
+
+loadLocalEnv();
+
 const sourcePath = resolve(process.argv[2] ?? "config/sources.json");
 const apiBaseUrl = (process.env.AI_RADAR_API_BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const token = process.env.AI_RADAR_API_TOKEN;
